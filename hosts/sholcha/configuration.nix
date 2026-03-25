@@ -105,6 +105,9 @@
         "networkmanager"
         "wheel"
       ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIABGKgbuVdXgW6OlYcN0SJTnFKi13c0250FfAzxLJyGW your_email@example.com"
+      ];
     };
 
     lambdajon = {
