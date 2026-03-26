@@ -117,6 +117,9 @@
         "networkmanager"
         "wheel"
       ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHIWqwSw9U0/YrJza8SCOF0sT/khMMEbgmqwt7hy7TUV maykrasoft@kot.xp"
+      ];
     };
 
     nigger = {
