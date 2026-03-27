@@ -147,6 +147,12 @@
   # nginx
   services.nginx = {
     enable = true;
+    listen = [
+      {
+        addr = "0.0.0.0";
+        port = 8080;
+      }
+    ];
     virtualHosts.localhost = {
       locations."/" = {
         return = "200 '<html><body>It works</body></html>'";
