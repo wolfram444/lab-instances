@@ -5,12 +5,17 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.relago-support.nixosModules.server
   ];
+
+  services.relago-server.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;

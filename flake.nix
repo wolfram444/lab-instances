@@ -8,8 +8,8 @@
       "nix-command"
       "flakes"
     ];
-    extra-substituters = ["https://cache.xinux.uz/"];
-    extra-trusted-public-keys = ["cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="];
+    extra-substituters = [ "https://cache.xinux.uz/" ];
+    extra-trusted-public-keys = [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
     allow-import-from-derivation = true;
   };
   inputs = {
@@ -22,20 +22,25 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    relago-support.url = "github:xinux-org/relago-support";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    ...
-  } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }@inputs:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = nixpkgs.legacyPackages.${system};
-      in {
+      in
+      {
         formatter = pkgs.nixfmt;
-        devShells.default = import ./shell.nix {inherit pkgs;};
+        devShells.default = import ./shell.nix { inherit pkgs; };
       }
     )
     // {
@@ -44,7 +49,7 @@
 
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = { inherit inputs; };
           modules = [
             # > Our main nixos configuration file <
             ./hosts/sholcha/configuration.nix
