@@ -55,7 +55,7 @@
       username2 = "75b46c6c-bdbd-42ce-818e-43e94af0c043";
     };
     serverProperties = {
-      server-port = 80;
+      server-port = 25565;
       difficulty = 3;
       gamemode = 1;
       max-players = 5;
@@ -171,24 +171,24 @@
   };
 
   # nginx
-  # services.nginx = {
-  #   enable = true;
+  services.nginx = {
+    enable = true;
 
-  #   virtualHosts.localhost = {
-  #     listen = [
-  #       {
-  #         addr = "0.0.0.0";
-  #         port = 8080;
-  #       }
-  #     ];
-  #     locations."/" = {
-  #       return = "200 '<html><body>It works</body></html>'";
-  #       extraConfig = ''
-  #         default_type text/html;
-  #       '';
-  #     };
-  #   };
-  # };
+    virtualHosts."funksiyachi.uz" = {
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+      ];
+      locations."/" = {
+        return = "200 '<html><body>It works</body></html>'";
+        extraConfig = ''
+          default_type text/html;
+        '';
+      };
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
