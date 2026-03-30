@@ -55,7 +55,7 @@
       username2 = "75b46c6c-bdbd-42ce-818e-43e94af0c043";
     };
     serverProperties = {
-      server-port = 25565;
+      server-port = 80;
       difficulty = 3;
       gamemode = 1;
       max-players = 5;
