@@ -9,7 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.relago-support.nixosModules.server
-    ../../modules
+    ../../modules/services/minecraft
   ];
 
   services.relago-server.enable = true;
