@@ -8,10 +8,9 @@
     enable = true;
 
     eula = true;
-    openFirewall = true; # Opens the port the server is running on (by default 25565 but in this case 43000)
+    openFirewall = true;
     declarative = true;
     whitelist = {
-      # This is a mapping of Minecraft usernames to to the players' UUIDs
       username1 = "3e220001-9544-48bb-8fd0-ca7139727207";
       username2 = "75b46c6c-bdbd-42ce-818e-43e94af0c043";
     };
@@ -24,7 +23,8 @@
       motd = "NixOS Minecraft server!";
       white-list = true;
       allow-cheats = true;
+      view-distance = 15;
     };
-    jvmOpts = "-Xms2048M -Xmx2048M";
+    jvmOpts = "-Xms2048M -Xmx8G";
   };
 }
