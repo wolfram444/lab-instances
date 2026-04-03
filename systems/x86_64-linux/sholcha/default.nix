@@ -43,6 +43,7 @@
     git
     fastfetch
     vscode
+    garage-webui
   ];
 
   # List services that you want to enable:
